@@ -9,13 +9,13 @@ MODULE_ID=$MODULE_NAME-$MODULE_CLASS
 SERVICE_SRC="$MODULE_ROOT/install/common/$MODULE_ID.service"
 SERVICE_DST="/etc/systemd/system/$MODULE_ID.service"
 
-# # Install mpd
+# # Install mpd and mpc
 
-sudo apt install mpd
+sudo apt install mpd mpc
 
 # # Install ymuse
 
-# TODO
+sudo apt install ./ymuse_0.22_linux_arm64.deb
 
 # # --- INSTALL SYSTEMD SERVICE ---
 echo "Installing systemd service: $SERVICE_DST"
