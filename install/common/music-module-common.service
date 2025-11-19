@@ -6,7 +6,7 @@ After=
 [Service]
 Restart=always
 ExecStartPre=
-ExecStart=/usr/bin/mpc
+ExecStart=/usr/bin/mpd --no-daemon
 ExecStop=
 
 [Install]
