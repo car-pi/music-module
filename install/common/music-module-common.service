@@ -1,0 +1,13 @@
+[Unit]
+Description=Music Module Common Service
+Requires=
+After=
+
+[Service]
+Restart=always
+ExecStartPre=
+ExecStart=/usr/bin/mpc
+ExecStop=
+
+[Install]
+WantedBy=multi-user.target

@@ -1,19 +1,21 @@
 #!/bin/bash
-echo "RUNNING modules/template-module/install/common/common.sh"
-export MODULE_ROOT="$ROOT/modules/template-module"
+echo "RUNNING modules/music-module/install/common/common.sh"
+export MODULE_ROOT="$ROOT/modules/music-module"
 
 # --- CONFIGURATION ---
 MODULE_NAME=$(basename "$MODULE_ROOT")   # infer module name from dir name
 MODULE_CLASS="common"
 MODULE_ID=$MODULE_NAME-$MODULE_CLASS
-DOCKERFILE_PATH="$MODULE_ROOT/docker/$MODULE_CLASS/Dockerfile"
 SERVICE_SRC="$MODULE_ROOT/install/common/$MODULE_ID.service"
 SERVICE_DST="/etc/systemd/system/$MODULE_ID.service"
-IMAGE_NAME="$MODULE_ID:latest"
 
-# # --- BUILD IMAGE ---
-echo "Building Docker image: $IMAGE_NAME"
-docker build -t "$IMAGE_NAME" -f "$DOCKERFILE_PATH" "$MODULE_ROOT/docker/common"
+# # Install mpd
+
+sudo apt install mpd
+
+# # Install ymuse
+
+# TODO
 
 # # --- INSTALL SYSTEMD SERVICE ---
 echo "Installing systemd service: $SERVICE_DST"
