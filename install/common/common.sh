@@ -21,7 +21,7 @@ cp $MODULE_ROOT/config/common/mpd.conf ~/.config/mpd/mpd.conf
 
 # Install ymuse
 
-sudo apt install -y ./ymuse_0.22_linux_arm64.deb
+sudo apt install -y "$MODULE_ROOT/install/common/ymuse_0.22_linux_arm64.deb"
 
 # --- INSTALL SYSTEMD SERVICES ---
 echo "Installing systemd service: $SERVICE_DST"
