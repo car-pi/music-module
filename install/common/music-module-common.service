@@ -1,12 +1,11 @@
 [Unit]
 Description=Music Module Common Service
 Requires=
-After=
+After=mpd_user.service
 
 [Service]
-Restart=always
-ExecStartPre=
-ExecStart=/usr/bin/mpd --no-daemon
+Type=oneshot
+ExecStart=/bin/bash -c 'mpc clear && mpc add "" && mpc shuffle && mpc play'
 ExecStop=
 
 [Install]
