@@ -5,6 +5,7 @@ After=mpd.service
 
 [Service]
 Type=oneshot
+ExecStartPre=/bin/bash -c 'until mpc status >/dev/null 2>&1; do sleep 0.2; done;'
 ExecStart=/bin/bash -c 'mpc clear && mpc add "" && mpc shuffle && mpc play'
 ExecStop=
 
